@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on Megan Grannan</title>
+    <link>https://megangrannan.github.io/categories/sql/</link>
+    <description>Recent content in SQL on Megan Grannan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://megangrannan.github.io/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chinook Database - Using SQL to Answer Business Questions</title>
+      <link>https://megangrannan.github.io/2020/07/chinook-database-sql-project/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://megangrannan.github.io/2020/07/chinook-database-sql-project/</guid>
+      <description>&lt;h6 id=&#34;answering-business-questions-with-sql---chinook-record-store-database-analysis&#34;&gt;Answering Business Questions with SQL - Chinook Record Store Database Analysis&lt;/h6&gt;
+&lt;p&gt;We are a fictional online record store. We want to use information from our database to answer business questions and inform strategic decisions.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

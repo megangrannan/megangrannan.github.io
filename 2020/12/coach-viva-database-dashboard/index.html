@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Megan Grannan">
+<meta name="keywords" content="">
+<meta name="description" content="Coach Viva Database and Dashboard for KPIs
+Code excerpts from my work with Coach Viva, a health and fitness startup.">
+
+
+<meta property="og:description" content="Coach Viva Database and Dashboard for KPIs
+Code excerpts from my work with Coach Viva, a health and fitness startup.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coach Viva Database and Dashboard">
+<meta name="twitter:title" content="Coach Viva Database and Dashboard">
+<meta property="og:url" content="https://megangrannan.github.io/2020/12/coach-viva-database-dashboard/">
+<meta property="twitter:url" content="https://megangrannan.github.io/2020/12/coach-viva-database-dashboard/">
+<meta property="og:site_name" content="Megan Grannan">
+<meta property="og:description" content="Coach Viva Database and Dashboard for KPIs
+Code excerpts from my work with Coach Viva, a health and fitness startup.">
+<meta name="twitter:description" content="Coach Viva Database and Dashboard for KPIs
+Code excerpts from my work with Coach Viva, a health and fitness startup.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-12-07T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2020-12-07T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="NoSQL">
+    
+      <meta property="article:section" content="Data Processing">
+    
+      <meta property="article:section" content="Python">
+    
+  
+  
+    
+      <meta property="article:tag" content="NoSQL">
+    
+      <meta property="article:tag" content="Data Processing">
+    
+      <meta property="article:tag" content="Python">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@megan_grannan">
+
+
+  <meta name="twitter:creator" content="@megan_grannan">
+
+
+
+
+
+
+  <meta property="og:image" content="https://lh3.googleusercontent.com/W7LTsU_cAI035qw6vj2JeX_Y7Bc9ku0J93MqbvDtD_Tw8gmZKQT1pgU7zucf9gu3wutByE1KzDsdD90P3ncgIuvoxWGimskOeSOSKwXl7iP2b0UsuLiVpY9HSrqhNvP9XbjiDr1Rhps=s225-p-k">
+  <meta property="twitter:image" content="https://lh3.googleusercontent.com/W7LTsU_cAI035qw6vj2JeX_Y7Bc9ku0J93MqbvDtD_Tw8gmZKQT1pgU7zucf9gu3wutByE1KzDsdD90P3ncgIuvoxWGimskOeSOSKwXl7iP2b0UsuLiVpY9HSrqhNvP9XbjiDr1Rhps=s225-p-k">
+
+
+
+
+
+  <meta property="og:image" content="https://lh3.googleusercontent.com/IerqjVTPawshkFYb47OwFm-QnCcsylEt1HaRucTMNtynrW4zfWSfi6VdyPxxAfXDz-cLmZVrE5B-pZFJAf-7Ey5k5qsjgxrlIMWyyMetMNokMZ5q5dx_fGYDM9qOuU9INofPZs5HOQ0=w2400">
+  <meta property="twitter:image" content="https://lh3.googleusercontent.com/IerqjVTPawshkFYb47OwFm-QnCcsylEt1HaRucTMNtynrW4zfWSfi6VdyPxxAfXDz-cLmZVrE5B-pZFJAf-7Ey5k5qsjgxrlIMWyyMetMNokMZ5q5dx_fGYDM9qOuU9INofPZs5HOQ0=w2400">
+
+
+    <title>Coach Viva Database and Dashboard</title>
+
+    <link rel="icon" href="https://megangrannan.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://megangrannan.github.io/2020/12/coach-viva-database-dashboard/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://megangrannan.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://megangrannan.github.io/">Megan Grannan</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://megangrannan.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://lh3.googleusercontent.com/IerqjVTPawshkFYb47OwFm-QnCcsylEt1HaRucTMNtynrW4zfWSfi6VdyPxxAfXDz-cLmZVrE5B-pZFJAf-7Ey5k5qsjgxrlIMWyyMetMNokMZ5q5dx_fGYDM9qOuU9INofPZs5HOQ0=w2400" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://megangrannan.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://lh3.googleusercontent.com/IerqjVTPawshkFYb47OwFm-QnCcsylEt1HaRucTMNtynrW4zfWSfi6VdyPxxAfXDz-cLmZVrE5B-pZFJAf-7Ey5k5qsjgxrlIMWyyMetMNokMZ5q5dx_fGYDM9qOuU9INofPZs5HOQ0=w2400" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Megan Grannan</h4>
+        
+          <h5 class="sidebar-profile-bio">My why: Using data and analytical thinking to make a positive impact. Data Scientist at Convoy, Master&rsquo;s student at Georgia Tech MS in Analytics, former teacher. Follow along with my learning and side projects!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://megangrannan.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://megangrannan.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/megan-grannan/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/megangrannan" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/megan_grannan" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://megangrannan.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://megangrannan.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://megangrannan.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Coach Viva Database and Dashboard
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-12-07T00:00:00Z">
+        
+  December 7, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://megangrannan.github.io/categories/nosql">NoSQL</a>, 
+    
+      <a class="category-link" href="https://megangrannan.github.io/categories/data-processing">Data Processing</a>, 
+    
+      <a class="category-link" href="https://megangrannan.github.io/categories/python">Python</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h6 id="coach-viva-database-and-dashboard-for-kpis">Coach Viva Database and Dashboard for KPIs</h6>
+<p>Code excerpts from my work with Coach Viva, a health and fitness startup.</p>
+<p><strong>Project Goal</strong>: Develop analytics system to convert Viva’s sales funnel into a predictable revenue machine.</p>
+<ul>
+<li>Collaborated with co-founders to determine metrics for KPIs</li>
+<li>Extracted data from multiple sources (Google Analytics, YouTube Analytics/APIs, ConvertKit email service provider, Bitly, web scraping) and segmented by traffic source (i.e. social media, sales funnel pages) to calculate KPIs</li>
+<li>Designed and built NoSQL database to store KPI data using Google Firestore</li>
+<li>Used resulting dashboard to drive business decisions, leading to increase in revenue and customer conversion rate.</li>
+</ul>
+<p>To see this project on my GitHub page, please click <a href="https://github.com/megangrannan/Portfolio/blob/master/Coach_Viva_Database_and_Dashboard_for_KPIs.ipynb">here</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://megangrannan.github.io/tags/nosql/">NoSQL</a>
+
+  <a class="tag tag--primary tag--small" href="https://megangrannan.github.io/tags/data-processing/">Data Processing</a>
+
+  <a class="tag tag--primary tag--small" href="https://megangrannan.github.io/tags/python/">Python</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://megangrannan.github.io/2021/07/us-border-crossings/" data-tooltip="US Border Crossings - Interactive Visualization in Python">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://megangrannan.github.io/2020/11/coach-viva-customer-analysis/" data-tooltip="Coach Viva Customer Analysis">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://megangrannan.github.io/2020/12/coach-viva-database-dashboard/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Megan Grannan. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://megangrannan.github.io/2021/07/us-border-crossings/" data-tooltip="US Border Crossings - Interactive Visualization in Python">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://megangrannan.github.io/2020/11/coach-viva-customer-analysis/" data-tooltip="Coach Viva Customer Analysis">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://megangrannan.github.io/2020/12/coach-viva-database-dashboard/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fmegangrannan.github.io%2F2020%2F12%2Fcoach-viva-database-dashboard%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://lh3.googleusercontent.com/IerqjVTPawshkFYb47OwFm-QnCcsylEt1HaRucTMNtynrW4zfWSfi6VdyPxxAfXDz-cLmZVrE5B-pZFJAf-7Ey5k5qsjgxrlIMWyyMetMNokMZ5q5dx_fGYDM9qOuU9INofPZs5HOQ0=w2400" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Megan Grannan</h4>
+    
+      <div id="about-card-bio">My why: Using data and analytical thinking to make a positive impact. Data Scientist at Convoy, Master&rsquo;s student at Georgia Tech MS in Analytics, former teacher. Follow along with my learning and side projects!</div>
+    
+    
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://megangrannan.github.io/images/darksky.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://megangrannan.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/megangrannan.github.io\/2020\/12\/coach-viva-database-dashboard\/';
+          
+            this.page.identifier = '\/2020\/12\/coach-viva-database-dashboard\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
