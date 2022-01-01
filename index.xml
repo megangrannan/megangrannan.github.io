@@ -6,15 +6,23 @@
     <description>Recent content on Megan Grannan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://megangrannan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://megangrannan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SimPy Garment Factory - Simulation in Python</title>
+      <link>https://megangrannan.github.io/2021/12/simpy/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://megangrannan.github.io/2021/12/simpy/</guid>
+      <description>&lt;p&gt;I work with a partner to learn SimPy, a simulation package in Python, and simulate a real life manufacturing example.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>US Border Crossings - Interactive Visualization in Python</title>
       <link>https://megangrannan.github.io/2021/07/us-border-crossings/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://megangrannan.github.io/2021/07/us-border-crossings/</guid>
-      <description>&lt;h6 id=&#34;us-land-border-crossings&#34;&gt;US Land Border Crossings&lt;/h6&gt;
-&lt;p&gt;How many people and vehicles cross the US-Canada and US-Mexico land borders each month?&lt;/p&gt;</description>
+      <description>&lt;p&gt;How many people and vehicles cross the US-Canada and US-Mexico land borders each month?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -23,8 +31,7 @@
       <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://megangrannan.github.io/2020/12/coach-viva-database-dashboard/</guid>
-      <description>&lt;h6 id=&#34;coach-viva-database-and-dashboard-for-kpis&#34;&gt;Coach Viva Database and Dashboard for KPIs&lt;/h6&gt;
-&lt;p&gt;Code excerpts from my work with Coach Viva, a health and fitness startup.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Code excerpts from my work with Coach Viva, a health and fitness startup.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,8 +40,7 @@
       <pubDate>Sat, 14 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://megangrannan.github.io/2020/11/coach-viva-customer-analysis/</guid>
-      <description>&lt;h6 id=&#34;coach-viva---customer-and-email-analysis&#34;&gt;Coach Viva - Customer And Email Analysis&lt;/h6&gt;
-&lt;p&gt;Code excerpts from my work with Coach Viva, a health and fitness startup.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Code excerpts from my work with Coach Viva, a health and fitness startup.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -43,8 +49,7 @@
       <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://megangrannan.github.io/2020/08/data-science-stack-exchange-project/</guid>
-      <description>&lt;h6 id=&#34;an-analysis-of-popular-topics-on-data-science-stack-exchange&#34;&gt;An Analysis of Popular Topics on Data Science Stack Exchange&lt;/h6&gt;
-&lt;p&gt;Imagine you are a company creating data science related courses and content - what new content should you add?&lt;/p&gt;</description>
+      <description>&lt;p&gt;Imagine you are a company creating data science related courses and content - what new content should you add?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -53,8 +58,7 @@
       <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://megangrannan.github.io/2020/07/chinook-database-sql-project/</guid>
-      <description>&lt;h6 id=&#34;answering-business-questions-with-sql---chinook-record-store-database-analysis&#34;&gt;Answering Business Questions with SQL - Chinook Record Store Database Analysis&lt;/h6&gt;
-&lt;p&gt;We are a fictional online record store. We want to use information from our database to answer business questions and inform strategic decisions.&lt;/p&gt;</description>
+      <description>&lt;p&gt;We are a fictional online record store. We want to use information from our database to answer business questions and inform strategic decisions.&lt;/p&gt;</description>
     </item>
     
   </channel>
